@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.1.0
+      author: startupbuilder
+      changes:
+        - sql:
+            dbms: h2, postgres
+            sql: create schema accounting
+  - changeSet:
+      id: 0.0.1.1
+      author: startupbuilder
+      changes:
+        - createTable:
+            schemaName: accounting
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+
