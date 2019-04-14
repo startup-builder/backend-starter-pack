@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.2
+      author: startupbuilder
+      changes:
+        - createTable:
+            schemaName: accounting
+            tableName: entry
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: decimal(19,2)
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: fk_entry_account
+            baseTableSchemaName: accounting
+            baseTableName: entry
+            baseColumnNames: account_id
+            referencedTableSchemaName: accounting
+            referencedTableName: account
+            referencedColumnNames: id
+
+
