@@ -1,15 +1,11 @@
 databaseChangeLog:
   - changeSet:
-      id: 0.0.1.0
+      id: 0.0.1
       author: startupbuilder
       changes:
         - sql:
             dbms: h2, postgres
             sql: create schema accounting
-  - changeSet:
-      id: 0.0.1.1
-      author: startupbuilder
-      changes:
         - createTable:
             schemaName: accounting
             tableName: account
