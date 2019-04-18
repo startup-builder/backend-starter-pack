@@ -24,6 +24,8 @@ public class AccountRepositoryTest {
 
     @Test
     public void repositoryShouldGenerateId() {
+        assertNotNull(repository);
+
         String name = "Test";
 
         var account = new Account();
